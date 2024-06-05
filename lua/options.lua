@@ -48,7 +48,15 @@ vim.opt.splitbelow = true
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 vim.opt.list = true
--- vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = {
+  -- tab = '|>',
+  -- trail = '·',
+  -- nbsp = '␣',
+  trail = '✚',
+  extends = '▶',
+  precedes = '◀',
+  tab = '> ',
+}
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
@@ -69,6 +77,16 @@ vim.opt.fillchars = {
   diff = '╱',
   eob = ' ',
 }
+vim.opt.foldlevel = 99
+if vim.fn.has 'nvim-0.10' == 1 then
+  vim.opt.smoothscroll = true
+  vim.opt.foldexpr = "v:lua.require'lazyvim.util'.ui.foldexpr()"
+  vim.opt.foldmethod = 'expr'
+  vim.opt.foldtext = ''
+else
+  vim.opt.foldmethod = 'indent'
+  vim.opt.foldtext = "v:lua.require'lazyvim.util'.ui.foldtext()"
+end
 vim.opt.smartindent = true
 vim.opt.tabstop = 2 -- Number of spaces tabs count for
 vim.opt.termguicolors = true

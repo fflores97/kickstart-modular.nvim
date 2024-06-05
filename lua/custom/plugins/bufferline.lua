@@ -2,6 +2,7 @@ return {
   'akinsho/bufferline.nvim',
   event = 'VeryLazy',
   keys = {
+    { '<leader>bd', '<Cmd>bd<CR>', desc = 'Toggle Pin' },
     { '<leader>bp', '<Cmd>BufferLineTogglePin<CR>', desc = 'Toggle Pin' },
     { '<leader>bP', '<Cmd>BufferLineGroupClose ungrouped<CR>', desc = 'Delete Non-Pinned Buffers' },
     { '<leader>bo', '<Cmd>BufferLineCloseOthers<CR>', desc = 'Delete Other Buffers' },
@@ -19,11 +20,11 @@ return {
       -- stylua: ignore
       -- right_mouse_command = function(n) LazyVim.ui.bufremove(n) end,
       diagnostics = 'nvim_lsp',
-      always_show_bufferline = true,
+      always_show_bufferline = false,
       -- diagnostics_indicator = function(_, _, diag)
-      --   local icons = require('lazyvim.config').icons.diagnostics
-      --   local ret = (diag.error and icons.Error .. diag.error .. ' ' or '') .. (diag.warning and icons.Warn .. diag.warning or '')
-      --   return vim.trim(ret)
+      -- local icons = require('lazyvim.config').icons.diagnostics
+      -- local ret = (diag.error and icons.Error .. diag.error .. ' ' or '') .. (diag.warning and icons.Warn .. diag.warning or '')
+      -- return vim.trim(ret)
       -- end,
       offsets = {
         {
